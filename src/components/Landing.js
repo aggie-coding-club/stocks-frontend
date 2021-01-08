@@ -6,9 +6,10 @@ function Landing() {
 
   const headerStyle = {
     textAlign: 'center',
-    padding: '16.5vh',
+    fontSize: '40px',
+    padding: '25vh',
     backgroundColor: '#01013b',
-    color: '#daefff'
+    color: 'white'
   }
 
   const btnStyle = {
@@ -26,7 +27,7 @@ function Landing() {
         <h1>An Amazing Name</h1>
       </header>
 
-      <div style={{marginRight: '25%', marginLeft: '25%'}}>
+      <div style={{marginRight: '25%', marginLeft: '25%', marginTop: '20px'}}>
         <div>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
@@ -35,7 +36,7 @@ function Landing() {
               </Button>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Button style={btnStyle} variant="contained" color="primary">
+              <Button style={btnStyle} variant="outlined" color="primary">
                 Login
               </Button>
             </Grid>
