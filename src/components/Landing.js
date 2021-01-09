@@ -6,7 +6,7 @@ function Landing() {
 
   const headerStyle = {
     textAlign: 'center',
-    fontSize: '40px',
+    fontSize: '3.5vw',
     padding: '25vh',
     backgroundColor: '#01013b',
     color: 'white'
