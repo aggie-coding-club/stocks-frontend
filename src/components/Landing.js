@@ -6,12 +6,18 @@ function Landing() {
 
   const headerStyle = {
     textAlign: 'center',
-    fontSize: '3.5vw',
-    padding: '25vh',
-    backgroundColor: '#01013b',
-    color: 'white'
+    backgroundColor: 'white',
+
+    padding: '15vh 0 12vh 0',
+    boxShadow: '10px 1px 0.5rem rgba(0,0,0,0.5)',
+    marginBottom: '15vh',
+
+    //borderBottom: '1px solid black'
   }
 
+  const titleStyle = {
+    margin: '20px 25% 0 25%'
+  }
   const btnStyle = {
     width: '150px',
     padding: '20px',
@@ -24,10 +30,10 @@ function Landing() {
   return (
     <div>
       <header style={headerStyle}>
-        <h1>An Amazing Name</h1>
+        <h3>The BeanStock</h3>
       </header>
 
-      <div style={{marginRight: '25%', marginLeft: '25%', marginTop: '20px'}}>
+      <div style={titleStyle}>
         <div>
           <Grid container spacing={3}>
             <Grid item xs={12} sm={6}>
