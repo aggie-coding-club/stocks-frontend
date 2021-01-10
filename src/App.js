@@ -26,13 +26,15 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
+
         <CssBaseline />
         <div className="App">
           <AppBar />
+          <StockCards />
         </div>
 
       </ThemeProvider>
-      <StockCards />
+
     </div>
 
   );
