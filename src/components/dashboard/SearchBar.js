@@ -6,7 +6,7 @@ import Chip from '@material-ui/core/Chip';
 import { Box, Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
-const stockData = require('../data/stock_data.json');
+const stockData = require('../../data/stock_data.json')
 
 const useStyles = makeStyles((theme) => ({
   layout: {

@@ -1,7 +1,7 @@
 import Landing from "./components/Landing"
 import './App.css';
-import AppBar from './components/AppBar';
-import SearchBar from './components/SearchBar';
+import AppBar from './components/dashboard/AppBar';
+import SearchBar from './components/dashboard/SearchBar';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
