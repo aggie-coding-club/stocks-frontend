@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import Landing from "./components/Landing"
 import './App.css';
 import AppBar from './components/AppBar';
 import SearchBar from './components/SearchBar';
@@ -28,6 +28,7 @@ function App() {
         <AppBar />
       </div>
     </ThemeProvider>
+
   );
 }
 
