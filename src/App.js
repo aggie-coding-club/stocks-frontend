@@ -3,6 +3,7 @@ import './App.css';
 import AppBar from './components/dashboard/AppBar';
 import SearchBar from './components/dashboard/SearchBar';
 import StockCards from './components/dashboard/StockCards';
+import Stocks from './components/dashboard/Stocks';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +13,21 @@ import {SatelliteTwoTone} from "@material-ui/icons";
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [darkState, setDarkState] = useState(true);
+  const [stocks, setStocks] = useState([
+    {
+      id: 1,
+      title: 'AAA',
+    },
+    {
+      id: 2,
+      title: 'USAA',
+    },
+    {
+      id: 3,
+      title: 'Tesla',
+    }
+  ])
+
   const theme = React.useMemo(
     () =>
       createMuiTheme({
@@ -29,8 +45,8 @@ function App() {
 
         <CssBaseline />
         <div className="App">
-          <AppBar />
-          <StockCards />
+          <AppBar/>
+          <Stocks stocks={stocks}/>
         </div>
 
       </ThemeProvider>

@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    background: "lightblue",
+    // background: "lightblue",
     margin: "auto",
     padding: '0 5vh 0 5vh'
 
@@ -28,16 +28,16 @@ export default function StockCards() {
     <div className={classes.container}>
       <div className={classes.root}>
         <Grid container spacing={3}>
-          <Grid item xs={3} sm={12}>
+          <Grid item xs={3} sm={4}>
             <Paper className={classes.paper}>xs=3</Paper>
           </Grid>
-          <Grid item xs={3} sm={6}>
+          <Grid item xs={3} sm={4}>
             <Paper className={classes.paper}>xs=3</Paper>
           </Grid>
-          <Grid item xs={3} sm={6}>
+          <Grid item xs={3} sm={4}>
             <Paper className={classes.paper}>xs=3</Paper>
           </Grid>
-          <Grid item xs={3} sm={6}>
+          <Grid item xs={3} sm={4}>
             <Paper className={classes.paper}>xs=3</Paper>
           </Grid>
         </Grid>
