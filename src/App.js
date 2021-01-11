@@ -9,6 +9,8 @@ import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React, { useState } from 'react';
 import {SatelliteTwoTone} from "@material-ui/icons";
+import Grid from '@material-ui/core/Grid';
+
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -46,7 +48,9 @@ function App() {
         <CssBaseline />
         <div className="App">
           <AppBar/>
-          <Stocks stocks={stocks}/>
+            <Stocks stocks={stocks}/>
+
+
         </div>
 
       </ThemeProvider>
