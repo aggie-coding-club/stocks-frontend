@@ -2,14 +2,13 @@ import Landing from "./components/Landing"
 import './App.css';
 import AppBar from './components/dashboard/AppBar';
 import SearchBar from './components/dashboard/SearchBar';
-import StockCards from './components/dashboard/StockCards';
 import Stocks from './components/dashboard/Stocks';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React, { useState } from 'react';
 import {SatelliteTwoTone} from "@material-ui/icons";
-import Grid from '@material-ui/core/Grid';
+;
 
 
 function App() {
@@ -62,15 +61,11 @@ function App() {
   return (
     <div>
       <ThemeProvider theme={theme}>
-
         <CssBaseline />
         <div className="App">
           <AppBar/>
-            <Stocks stocks={stocks}/>
-
-
+          <Stocks stocks={stocks}/>
         </div>
-
       </ThemeProvider>
 
     </div>
