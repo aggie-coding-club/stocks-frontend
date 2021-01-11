@@ -19,26 +19,32 @@ function App() {
     {
       id: 1,
       title: 'AAA',
+      price: '$3.00',
     },
     {
       id: 2,
       title: 'USAA',
+      price: '$100.00',
     },
     {
       id: 3,
       title: 'Tesla',
+      price: '$30.25',
     },
     {
       id: 4,
-      title: 'Warner Bros'
+      title: 'Warner Bros',
+      price: '$14.91',
     },
     {
       id: 5,
       title: 'Blackberry',
+      price: '$55.01',
     },
     {
       id: 6,
-      title: 'General Motors'
+      title: 'General Motors',
+      price: '$6.22',
     }
   ])
 

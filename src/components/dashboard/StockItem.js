@@ -24,15 +24,13 @@ export default function StockItem({stock}) {
   const classes = useStyles();
 
   return(
-
-
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
           {stock.title}
         </Typography>
         <Typography variant="body2" component="p">
-          $3.00
+          {stock.price}
         </Typography>
       </CardContent>
       <CardActions>
