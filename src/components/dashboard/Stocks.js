@@ -1,6 +1,5 @@
 import React from 'react';
 import StockItem from './StockItem';
-import Grid from "@material-ui/core/Grid";
 
 function getStocks({stocks}) {
   return (
@@ -10,13 +9,14 @@ function getStocks({stocks}) {
   )
 }
 
+
+
 export default function Stocks({stocks}) {
   return(
-    <div>
-      <Grid container spacing={3}>
-        {getStocks({stocks})}
-      </Grid>
-
+    <div >
+      <div>
+          {getStocks({stocks})}
+      </div>
     </div>
 
   )

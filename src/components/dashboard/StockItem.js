@@ -1,21 +1,43 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles( (theme) => ({
-  paper: {
-    padding: theme.spacing(3),
-    marginTop: '20px',
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+const useStyles = makeStyles({
+  root: {
+    minWidth: 275,
+    float: 'left',
+    margin: '2.5vh'
   },
+  title: {
+    fontSize: 14,
+  },
+  pos: {
+    marginBottom: 12,
+  },
+});
 
-}))
 export default function StockItem({stock}) {
   const classes = useStyles();
+
   return(
-    <div>
-      <Paper className={classes.paper}>{stock.title}</Paper>
-    </div>
+
+
+    <Card className={classes.root}>
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {stock.title}
+        </Typography>
+        <Typography variant="body2" component="p">
+          $3.00
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">Learn More</Button>
+      </CardActions>
+    </Card>
   )
 }

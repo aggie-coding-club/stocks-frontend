@@ -27,6 +27,18 @@ function App() {
     {
       id: 3,
       title: 'Tesla',
+    },
+    {
+      id: 4,
+      title: 'Warner Bros'
+    },
+    {
+      id: 5,
+      title: 'Blackberry',
+    },
+    {
+      id: 6,
+      title: 'General Motors'
     }
   ])
 
