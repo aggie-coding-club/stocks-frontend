@@ -43,18 +43,21 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar({addStock}) {
   const classes = useStyles();
-  const [title, setTitle] = useState('none')
+  const [title, setTitle] = useState(null)
 
   function onChange(event, value) {
     if(value) {
       setTitle(value.security);
+    } else {
+      setTitle(null)
     }
-
-
   }
 
   function onAdd() {
-    addStock(title)
+    if(title) {
+      addStock(title)
+    }
+
   }
   
   return (

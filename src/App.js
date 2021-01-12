@@ -58,6 +58,8 @@ function App() {
   );
 
   function addStock(title) {
+    //add stock from search bar
+    //FIXME: should provide necessary information of stock here to pop up on card
     let data = {title: title, id: Math.random()}
     setStocks([...stocks, data])
   }
