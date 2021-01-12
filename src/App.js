@@ -43,7 +43,6 @@ function App() {
     {
       id: 6,
       title: 'General Motors',
-      price: '$6.22',
     }
   ])
 

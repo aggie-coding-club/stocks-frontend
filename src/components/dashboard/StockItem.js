@@ -23,7 +23,8 @@ const useStyles = makeStyles({
   },
   media: {
     height: 0,
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '56.25%',
+    margin: '1vh'
   },
   pos: {
     marginBottom: 12,
@@ -40,14 +41,21 @@ export default function StockItem({stock, delStock}) {
     <Card className={classes.root}>
       <CardHeader
         title = {stock.title}
-        subheader= {stock.price}
+        subheader= {stock.price ? stock.price : 'None found'}
       />
-      {/*FIXME: Insert graph HERE*/}
+
+      {/*FIXME: Insert graph into CardMedia*/}
       <CardMedia
         className={classes.media}
         title="Stock Graph"
         image={stockGraph}
       />
+
+      <CardContent>
+        <Typography variant="body2" component="p">
+          Insert more stock information here if necessary
+        </Typography>
+      </CardContent>
       <CardActions disableSpacing>
         <Tooltip title="Delete">
           <IconButton

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -43,6 +43,12 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SearchBar() {
   const classes = useStyles();
+  const [title, setTitle] = useState('none')
+
+  function onChange(event, value) {
+    setTitle(value.security);
+    console.log(title);
+  }
   
   return (
     <div className={classes.search, classes.inputRoot, classes.layout}>
@@ -61,7 +67,7 @@ export default function SearchBar() {
           classes={classes}
           options={stockData["data"]}
           getOptionLabel={(option) => option.security + ' (' + option.symbol + ')'}
-          onChange={(event, value) => console.log(value)}
+          onChange={onChange}
           renderTags={(value, getTagProps) =>
             value.map((option, index) => (
               <Chip
@@ -79,6 +85,7 @@ export default function SearchBar() {
         </Box>
         <Box p={1}>
           <Button
+            onClick={() => console.log('adding')}
             variant="contained"
             color="primary"
             className={classes.button}
