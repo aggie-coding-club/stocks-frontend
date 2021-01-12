@@ -59,7 +59,9 @@ function App() {
   );
 
   function delStock(id) {
-    console.log(id);
+    //stock card deleted from dashboard
+    //FIXME: Should be deleted in server
+    setStocks(stocks.filter(stock => stock.id !== id))
   }
   return (
     <div>
