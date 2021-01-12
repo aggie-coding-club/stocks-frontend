@@ -46,7 +46,10 @@ export default function SearchBar({addStock}) {
   const [title, setTitle] = useState('none')
 
   function onChange(event, value) {
-    setTitle(value.security);
+    if(value) {
+      setTitle(value.security);
+    }
+
 
   }
 
