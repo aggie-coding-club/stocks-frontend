@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({addStock}) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -118,7 +118,7 @@ export default function PrimarySearchAppBar() {
             Stonks
           </Typography>
           <div className={classes.search}>
-            <SearchBar />
+            <SearchBar addStock={addStock}/>
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>

@@ -41,13 +41,17 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SearchBar() {
+export default function SearchBar({addStock}) {
   const classes = useStyles();
   const [title, setTitle] = useState('none')
 
   function onChange(event, value) {
     setTitle(value.security);
-    console.log(title);
+
+  }
+
+  function onAdd() {
+    addStock(title)
   }
   
   return (
@@ -85,7 +89,7 @@ export default function SearchBar() {
         </Box>
         <Box p={1}>
           <Button
-            onClick={() => console.log('adding')}
+            onClick={onAdd}
             variant="contained"
             color="primary"
             className={classes.button}

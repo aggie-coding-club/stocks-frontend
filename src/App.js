@@ -57,6 +57,11 @@ function App() {
       [prefersDarkMode],
   );
 
+  function addStock(title) {
+    let data = {title: title, id: Math.random()}
+    setStocks([...stocks, data])
+  }
+
   function delStock(id) {
     //stock card deleted from dashboard
     //FIXME: Should be deleted in server
@@ -67,7 +72,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <AppBar/>
+          <AppBar addStock={addStock}/>
           <Stocks stocks={stocks} delStock={delStock}/>
         </div>
       </ThemeProvider>
