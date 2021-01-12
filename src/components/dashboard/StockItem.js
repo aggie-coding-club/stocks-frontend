@@ -27,7 +27,7 @@ const useStyles = makeStyles({
   }
 });
 
-export default function StockItem({stock}) {
+export default function StockItem({stock, delStock}) {
   const classes = useStyles();
 
   return(
@@ -43,6 +43,7 @@ export default function StockItem({stock}) {
       <CardActions disableSpacing>
         <Tooltip title="Delete">
           <IconButton
+            onClick={delStock.bind(this, stock.id)}
             className={classes.delete}
             aria-label="delete">
             <DeleteIcon />

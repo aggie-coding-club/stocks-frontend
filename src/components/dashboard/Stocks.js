@@ -1,22 +1,14 @@
 import React from 'react';
 import StockItem from './StockItem';
 
-function getStocks({stocks}) {
-  return (
-    stocks.map((stock => (
-      <StockItem stock={stock}/>
-    )))
-  )
-}
 
-
-
-export default function Stocks({stocks}) {
+export default function Stocks({stocks, delStock}) {
   return(
-    <div >
-      <div>
-          {getStocks({stocks})}
-      </div>
+    <div>
+      { stocks.map((stock) => (
+        <StockItem key={stock.id} stock={stock} delStock={delStock} />
+      ))
+      }
     </div>
 
   )

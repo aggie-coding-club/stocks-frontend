@@ -58,13 +58,16 @@ function App() {
       [prefersDarkMode],
   );
 
+  function delStock(id) {
+    console.log(id);
+  }
   return (
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
           <AppBar/>
-          <Stocks stocks={stocks}/>
+          <Stocks stocks={stocks} delStock={delStock}/>
         </div>
       </ThemeProvider>
 
