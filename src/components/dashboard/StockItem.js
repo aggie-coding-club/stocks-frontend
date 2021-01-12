@@ -5,6 +5,9 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles({
   root: {
@@ -14,10 +17,14 @@ const useStyles = makeStyles({
   },
   title: {
     fontSize: 14,
+    whiteSpace: 'nowrap'
   },
   pos: {
     marginBottom: 12,
   },
+  delete: {
+    marginLeft: "auto"
+  }
 });
 
 export default function StockItem({stock}) {
@@ -33,8 +40,14 @@ export default function StockItem({stock}) {
           {stock.price}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small">Learn More</Button>
+      <CardActions disableSpacing>
+        <Tooltip title="Delete">
+          <IconButton
+            className={classes.delete}
+            aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+        </Tooltip>
       </CardActions>
     </Card>
   )
