@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
@@ -6,7 +6,7 @@ import Chip from '@material-ui/core/Chip';
 import { Box, Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
-const stockData = require('../data/stock_data.json');
+const stockData = require('../../data/stock_data.json')
 
 const useStyles = makeStyles((theme) => ({
   layout: {
@@ -41,8 +41,24 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SearchBar() {
+export default function SearchBar({addStock}) {
   const classes = useStyles();
+  const [title, setTitle] = useState(null)
+
+  function onChange(event, value) {
+    if(value) {
+      setTitle(value.security);
+    } else {
+      setTitle(null)
+    }
+  }
+
+  function onAdd() {
+    if(title) {
+      addStock(title)
+    }
+
+  }
   
   return (
     <div className={classes.search, classes.inputRoot, classes.layout}>
@@ -61,7 +77,7 @@ export default function SearchBar() {
           classes={classes}
           options={stockData["data"]}
           getOptionLabel={(option) => option.security + ' (' + option.symbol + ')'}
-          onChange={(event, value) => console.log(value)}
+          onChange={onChange}
           renderTags={(value, getTagProps) =>
             value.map((option, index) => (
               <Chip
@@ -79,6 +95,7 @@ export default function SearchBar() {
         </Box>
         <Box p={1}>
           <Button
+            onClick={onAdd}
             variant="contained"
             color="primary"
             className={classes.button}

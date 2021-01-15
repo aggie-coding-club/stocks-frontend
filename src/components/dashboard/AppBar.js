@@ -9,7 +9,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
-import SearchBar from '../components/SearchBar'
+import SearchBar from '../dashboard/SearchBar'
 import Brightness4Icon from '@material-ui/icons/Brightness4';
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar() {
+export default function PrimarySearchAppBar({addStock}) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -118,7 +118,7 @@ export default function PrimarySearchAppBar() {
             Stonks
           </Typography>
           <div className={classes.search}>
-            <SearchBar />
+            <SearchBar addStock={addStock}/>
           </div>
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>

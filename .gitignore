@@ -18,10 +18,11 @@
 .env.test.local
 .env.production.local
 .eslintcache
-.idea
+/.idea
 
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+debug.log
 *.code-workspace
