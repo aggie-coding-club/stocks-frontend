@@ -7,6 +7,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React, { useState } from 'react';
+import stockData from './data/stock_data2.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
 ;
 
@@ -14,37 +15,7 @@ import {SatelliteTwoTone} from "@material-ui/icons";
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [darkState, setDarkState] = useState(true);
-  const [stocks, setStocks] = useState([
-    {
-      id: 1,
-      title: 'AAA',
-      price: '$3.00',
-    },
-    {
-      id: 2,
-      title: 'USAA',
-      price: '$100.00',
-    },
-    {
-      id: 3,
-      title: 'Tesla',
-      price: '$30.25',
-    },
-    {
-      id: 4,
-      title: 'Warner Bros',
-      price: '$14.91',
-    },
-    {
-      id: 5,
-      title: 'Blackberry',
-      price: '$55.01',
-    },
-    {
-      id: 6,
-      title: 'General Motors',
-    }
-  ])
+  const [stocks, setStocks] = useState(stockData.stocks)
 
   const theme = React.useMemo(
     () =>
