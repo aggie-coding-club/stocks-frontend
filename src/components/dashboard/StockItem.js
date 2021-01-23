@@ -34,11 +34,11 @@ const useStyles = makeStyles({
   }
 });
 
-export default function StockItem({stock, delStock}) {
+export default function StockItem({stock, delStock, cardClick}) {
   const classes = useStyles();
 
   return(
-    <Card className={classes.root}>
+    <Card className={classes.root} onClick={cardClick.bind(this, stock.title)}>
       <CardHeader
         title = {stock.title}
         subheader= {stock.price ? stock.price : 'None found'}

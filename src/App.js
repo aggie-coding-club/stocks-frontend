@@ -43,6 +43,11 @@ function App() {
     //FIXME: Should be deleted in server
     setStocks(stocks.filter(stock => stock.id !== id))
   }
+
+  function cardClick(title) {
+    //console logs title of card that was clicked
+    console.log(title)
+  }
   return (
     <div>
       <ThemeProvider theme={theme}>
@@ -50,7 +55,7 @@ function App() {
         <div className="App">
           <AppBar addStock={addStock} />
           <Graph data={graphData} />
-          <Stocks stocks={stocks} delStock={delStock} />
+          <Stocks stocks={stocks} delStock={delStock} cardClick={cardClick}/>
         </div>
       </ThemeProvider>
 
