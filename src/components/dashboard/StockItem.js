@@ -31,11 +31,21 @@ const useStyles = makeStyles({
 export default function StockItem({stock, delStock}) {
   const classes = useStyles();
 
+  function getTitle(title) {
+    if(title) {
+      if(title.length <= 23) {
+        return title
+      } else {
+        return title.substring(0, 20) + "..."
+      }
+    }
+    return "none found";
+  }
   return(
     <Card className={classes.root}>
       <CardHeader
         title = {stock.symbol}
-        subheader= {stock.title ? stock.title : 'None found'}
+        subheader= {getTitle(stock.title)}
         action={
           <IconButton
             onClick={delStock.bind(this, stock.id)}
