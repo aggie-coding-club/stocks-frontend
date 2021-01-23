@@ -4,18 +4,21 @@ import AppBar from './components/dashboard/AppBar';
 import SearchBar from './components/dashboard/SearchBar';
 import Stocks from './components/dashboard/Stocks';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import React, { useState } from 'react';
+import React, {useState} from 'react';
+// TODO(nhwn): replace hardcoded data imports with calls to the backend
 import stockData from './data/stock_data2.json'
+import sampleGraphData from './data/graph_sample_data.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
-;
+import Graph from "./components/dashboard/Graph";
 
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [darkState, setDarkState] = useState(true);
-  const [stocks, setStocks] = useState(stockData.stocks)
+  const [stocks, setStocks] = useState(stockData.stocks);
+  const [graphData, setGraphData] = useState(sampleGraphData);
 
   const theme = React.useMemo(
     () =>
@@ -25,7 +28,7 @@ function App() {
           //type: darkState ? 'dark' : 'light'
         },
       }),
-      [prefersDarkMode],
+    [prefersDarkMode],
   );
 
   function addStock(title) {
@@ -45,8 +48,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <AppBar addStock={addStock}/>
-          <Stocks stocks={stocks} delStock={delStock}/>
+          <AppBar addStock={addStock} />
+          <Graph data={graphData} />
+          <Stocks stocks={stocks} delStock={delStock} />
         </div>
       </ThemeProvider>
 
