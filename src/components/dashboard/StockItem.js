@@ -7,7 +7,6 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
 
 const useStyles = makeStyles({
   root: {
@@ -35,26 +34,23 @@ export default function StockItem({stock, delStock}) {
   return(
     <Card className={classes.root}>
       <CardHeader
-        title = {stock.title}
-        subheader= {stock.price ? stock.price : 'None found'}
-      />
-
-
-      {/*<CardContent>*/}
-      {/*  <Typography variant="body2" component="p">*/}
-      {/*    Insert more stock information here if necessary*/}
-      {/*  </Typography>*/}
-      {/*</CardContent>*/}
-      <CardActions disableSpacing>
-        <Tooltip title="Delete">
+        title = {stock.symbol}
+        subheader= {stock.title ? stock.title : 'None found'}
+        action={
           <IconButton
             onClick={delStock.bind(this, stock.id)}
             className={classes.delete}
             aria-label="delete">
             <DeleteIcon />
           </IconButton>
-        </Tooltip>
-      </CardActions>
+        }
+      />
+      <CardContent>
+        <Typography>
+          Current price: {stock.price ? stock.price : "none found"}
+        </Typography>
+      </CardContent>
+
     </Card>
   )
 }

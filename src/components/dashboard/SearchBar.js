@@ -47,7 +47,7 @@ export default function SearchBar({addStock}) {
 
   function onChange(event, value) {
     if(value) {
-      setTitle(value.security);
+      setTitle([value.security, value.symbol]);
     } else {
       setTitle(null)
     }
@@ -55,9 +55,9 @@ export default function SearchBar({addStock}) {
 
   function onAdd() {
     if(title) {
+      console.log('adding')
       addStock(title)
     }
-
   }
   
   return (
