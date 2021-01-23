@@ -47,7 +47,7 @@ export default function StockItem({stock, delStock}) {
       />
       <CardContent>
         <Typography>
-          Current price: {stock.price ? stock.price : "none found"}
+          Price: {stock.price ? stock.price : "none found"}
         </Typography>
       </CardContent>
 
