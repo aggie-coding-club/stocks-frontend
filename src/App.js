@@ -15,8 +15,7 @@ import Graph from "./components/dashboard/Graph";
 
 
 function App() {
-  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-  const [darkState, setDarkState] = useState(true);
+  const [darkState, setDarkState] = useState(false);
   const [stocks, setStocks] = useState(stockData.stocks);
   const [graphData, setGraphData] = useState(sampleGraphData);
   const [selectedSymbols, setSelectedSymbols] = useState({});
@@ -28,12 +27,15 @@ function App() {
     () =>
       createMuiTheme({
         palette: {
-          type: prefersDarkMode ? 'dark' : 'light',
-          //type: darkState ? 'dark' : 'light'
+          type: darkState ? 'dark' : 'light',
         },
       }),
-    [prefersDarkMode],
+    [darkState],
   );
+  
+  function toggleDarkMode() {
+    setDarkState(!darkState);
+  }
 
   function addStock(title) {
     //add stock from search bar
@@ -62,9 +64,9 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <AppBar addStock={addStock} />
+          <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode} />
           <Graph data={actualGraphData} />
-          <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle}/>
+          <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle} />
         </div>
       </ThemeProvider>
 
