@@ -7,7 +7,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React, {useState} from 'react';
-// TODO(nhwn): replace hardcoded data imports with calls to the backend
+// TODO(nhwn): replace hardcoded data imports with calls to the backed
 import stockData from './data/stock_data2.json'
 import sampleGraphData from './data/graph_sample_data.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
@@ -18,6 +18,10 @@ function App() {
   const [darkState, setDarkState] = useState(false);
   const [stocks, setStocks] = useState(stockData.stocks);
   const [graphData, setGraphData] = useState(sampleGraphData);
+  const [selectedSymbols, setSelectedSymbols] = useState({});
+  const actualGraphData = Object.entries(selectedSymbols)
+    .filter(([_, isSelected]) => isSelected)
+    .map(([symbol, _]) => ({id: symbol, data: graphData[symbol].data}));
 
   const theme = React.useMemo(
     () =>
@@ -40,24 +44,29 @@ function App() {
     setStocks([...stocks, data])
   }
 
-  function delStock(id) {
+  function delStock(id, symbol) {
     //stock card deleted from dashboard
     //FIXME: Should be deleted in server
     setStocks(stocks.filter(stock => stock.id !== id))
+    // NOTE: we need to ensure that the symbol is removed on deletion in case
+    // the card is still toggled on
+    selectedSymbols[symbol] = false;
+    setSelectedSymbols({...selectedSymbols});
   }
 
-  function cardClick(title) {
-    //console logs title of card that was clicked
-    console.log(title)
+  function cardToggle(symbol, isSelected) {
+    selectedSymbols[symbol] = isSelected;
+    setSelectedSymbols({...selectedSymbols});
   }
+
   return (
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode}/>
-          <Graph data={graphData} />
-          <Stocks stocks={stocks} delStock={delStock} cardClick={cardClick}/>
+          <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode} />
+          <Graph data={actualGraphData} />
+          <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle} />
         </div>
       </ThemeProvider>
 
