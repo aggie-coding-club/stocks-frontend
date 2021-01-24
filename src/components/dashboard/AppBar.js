@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PrimarySearchAppBar({addStock}) {
+export default function PrimarySearchAppBar({addStock, toggleDarkMode}) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
@@ -88,10 +88,10 @@ export default function PrimarySearchAppBar({addStock}) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      <MenuItem onClick = {toggleDarkMode}>
         <IconButton color="inherit">
           <Badge color="secondary">
-            <Brightness4Icon />
+            <Brightness4Icon/>
           </Badge>
         </IconButton>
         <p>Dark Mode</p>
@@ -125,7 +125,7 @@ export default function PrimarySearchAppBar({addStock}) {
 
               <IconButton color="inherit">
                 <Badge color="secondary">
-                  <Brightness4Icon onClick={() => {console.log("clicked!")}}/>
+                  <Brightness4Icon onClick={toggleDarkMode}/>
                 </Badge>
               </IconButton>
 
