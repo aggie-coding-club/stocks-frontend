@@ -2,14 +2,11 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 import DeleteIcon from '@material-ui/icons/Delete';
 import IconButton from '@material-ui/core/IconButton';
-import Tooltip from '@material-ui/core/Tooltip';
-import stockGraph from '../../static/stock_graph.png'; //FIXME: delete once actual graph used
 
 const useStyles = makeStyles({
   root: {
@@ -28,44 +25,42 @@ const useStyles = makeStyles({
   },
   pos: {
     marginBottom: 12,
-  },
-  delete: {
-    marginLeft: "auto"
   }
 });
 
 export default function StockItem({stock, delStock, cardClick}) {
   const classes = useStyles();
 
+  function getTitle(title) {
+    if(title) {
+      if(title.length <= 23) {
+        return title
+      } else {
+        return title.substring(0, 20) + "..."
+      }
+    }
+    return "none found";
+  }
   return(
     <Card className={classes.root} onClick={cardClick.bind(this, stock.title)}>
       <CardHeader
-        title = {stock.title}
-        subheader= {stock.price ? stock.price : 'None found'}
-      />
-
-      {/*FIXME: Insert graph into CardMedia*/}
-      <CardMedia
-        className={classes.media}
-        title="Stock Graph"
-        image={stockGraph}
-      />
-
-      <CardContent>
-        <Typography variant="body2" component="p">
-          Insert more stock information here if necessary
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Tooltip title="Delete">
+        title = {stock.symbol}
+        subheader= {getTitle(stock.title)}
+        action={
           <IconButton
             onClick={delStock.bind(this, stock.id)}
             className={classes.delete}
             aria-label="delete">
             <DeleteIcon />
           </IconButton>
-        </Tooltip>
-      </CardActions>
+        }
+      />
+      <CardContent>
+        <Typography>
+          Price: {stock.price ? stock.price : "none found"}
+        </Typography>
+      </CardContent>
+
     </Card>
   )
 }

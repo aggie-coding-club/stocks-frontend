@@ -1,32 +1,38 @@
 {
   "stocks": [    {
     "id": 1,
-    "title": "AAA",
+    "symbol": "AAL",
+    "title": "American Airlines Group Inc",
     "price": "$3.00"
   },
     {
       "id": 2,
-      "title": "USAA",
+      "symbol": "BAC",
+      "title": "Bank Of America Corp",
       "price": "$100.00"
     },
     {
       "id": 3,
+      "symbol": "TSLA",
       "title": "Tesla",
       "price": "$30.25"
     },
     {
       "id": 4,
-      "title": "Warner Bros",
+      "symbol": "FB",
+      "title": "Facebook Inc - Class A asdlkjfdslflkasjdhflasjdhfklajhdflkjashdlkfjhaslkdjfhaslkd",
       "price": "$14.91"
     },
     {
       "id": 5,
-      "title": "Blackberry",
+      "symbol": "MSFT",
+      "title": "Microsoft Corporation",
       "price": "$55.01"
     },
     {
       "id": 6,
-      "title": "General Motors"
+      "symbol": "NVDA",
+      "title": "NVIDIA Corp"
     }
   ]
 }
