@@ -12,6 +12,7 @@ import stockData from './data/stock_data2.json'
 import sampleGraphData from './data/graph_sample_data.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
 import Graph from "./components/dashboard/Graph";
+import Toolbar from "@material-ui/core/Toolbar";
 
 
 function App() {
@@ -64,9 +65,10 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
-          <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode} />
+          <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode}/>
+          <Toolbar />
           <Graph data={actualGraphData} />
-          <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle} />
+          <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle}/>
         </div>
       </ThemeProvider>
 
