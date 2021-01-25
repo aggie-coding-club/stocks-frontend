@@ -16,9 +16,10 @@ import {ResponsiveLine} from '@nivo/line'
 const containerStyle = {
   width: '80vw',
   height: '50vh',
-  display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  margin: '12.5vh 0 12.5vh 0', // (100 - height) / 2
+  paddingRight: '1vw'
+
 }
 
 export default function Graph({data}) {
