@@ -17,7 +17,8 @@ const containerStyle = {
   width: '80vw',
   height: '50vh',
   alignItems: 'center',
-  margin: '12.5vh 0 12.5vh 0'
+  margin: '12.5vh 0 12.5vh 0', // (100 - height) / 2
+  paddingRight: '1vw'
 
 }
 

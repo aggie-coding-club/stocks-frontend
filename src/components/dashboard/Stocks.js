@@ -6,7 +6,7 @@ const stockStyle = {
   float: 'right',
   height: '80vh',
   width: '23vw',
-  marginTop: '1vh',
+  marginTop: '3vh',
   overflow: 'auto'
 }
 
