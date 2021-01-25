@@ -65,7 +65,7 @@ export default function SearchBar({addStock}) {
             size="small"
             className={classes}
             options={Object.entries(stockData["top100symbols"])}
-            getOptionLabel={(option) => option[1] + ' (' + option[0] + ')'}
+            getOptionLabel={([symbol, title]) => `${title} (${symbol})`}
             onChange={onChange}
             style={{ width: '50vw', maxWidth: '500px' }}
             renderTags={(value, getTagProps) =>
