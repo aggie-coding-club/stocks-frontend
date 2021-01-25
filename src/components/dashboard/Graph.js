@@ -18,7 +18,7 @@ const containerStyle = {
   height: '50vh',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
 }
 
 export default function Graph({data}) {

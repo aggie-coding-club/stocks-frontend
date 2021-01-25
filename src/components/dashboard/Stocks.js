@@ -3,7 +3,10 @@ import StockItem from './StockItem';
 
 
 const stockStyle = {
-  float: 'right'
+  float: 'right',
+  height: '80vh',
+  marginTop: '1vh',
+  overflow: 'auto'
 }
 
 export default function Stocks({stocks, delStock, cardToggle}) {
