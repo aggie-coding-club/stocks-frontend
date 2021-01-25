@@ -12,6 +12,7 @@ import stockData from './data/stock_data2.json'
 import sampleGraphData from './data/graph_sample_data.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
 import Graph from "./components/dashboard/Graph";
+import Toolbar from "@material-ui/core/Toolbar";
 
 
 function App() {
@@ -48,12 +49,14 @@ function App() {
     //console logs title of card that was clicked
     console.log(title)
   }
+  
   return (
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div className="App">
           <AppBar addStock={addStock} />
+          <Toolbar />
           <Graph data={graphData} />
           <Stocks stocks={stocks} delStock={delStock} cardClick={cardClick}/>
         </div>
