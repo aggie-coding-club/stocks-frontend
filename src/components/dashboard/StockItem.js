@@ -10,9 +10,8 @@ import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles({
   root: {
-    minWidth: 275,
-    float: 'left',
-    margin: '2.5vh'
+
+
   },
   title: {
     fontSize: 14,

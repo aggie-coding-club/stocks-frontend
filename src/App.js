@@ -6,6 +6,7 @@ import Stocks from './components/dashboard/Stocks';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import Grid from '@material-ui/core/Grid';
 import React, {useState} from 'react';
 // TODO(nhwn): replace hardcoded data imports with calls to the backed
 import stockData from './data/stock_data2.json'
@@ -65,8 +66,16 @@ function App() {
         <CssBaseline />
         <div className="App">
           <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode} />
-          <Graph data={actualGraphData} />
-          <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle} />
+          <div style={{flexGrow: 1}}>
+            <Grid container spacing={3}>
+              <Grid item xs={6}>
+                <Graph data={actualGraphData} />
+              </Grid>
+              <Grid item xs={6}>
+                <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle} />
+              </Grid>
+            </Grid>
+          </div>
         </div>
       </ThemeProvider>
 
