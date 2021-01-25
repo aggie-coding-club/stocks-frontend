@@ -1,44 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import { fade, makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Chip from '@material-ui/core/Chip';
-import { Box, Button } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import Grid from '@material-ui/core/Grid';
 
 const stockData = require('../../data/stock_data.json')
 
 const useStyles = makeStyles((theme) => ({
-  layout: {
-    position: "fixed",
-    left: "50%",
-    transform: 'translate(-50%, -50%)', 
+  root: {
+    flexGrow: 1,
+    "& .MuiFilledInput-underline:after" : {
+      borderBottomColor: "inherit"
+    },
+    "& .MuiInputLabel-root.Mui-focused" : {
+      color: "inherit"
+    },
+    "& .MuiFormLabel-root" : {
+      color: "inherit"
+    },
+    "& .MuiFormControl-root" : {
+      verticalAlign: "middle"
+    }
   },
-  inputRoot: {
-    color: "inherit",
-      "& .MuiFilledInput-underline:after": {
-        color: 'inherit'
-      },
-      
-      "& .MuiFormLabel-root": {
-        color: 'inherit'
-      },
-
-      "& .MuiFormLabel-root.Mui-focused": {
-        color: 'inherit'
-      },
-    },
-
-    root: {
-      display: "inline-block",
-      verticalAlign: "middle",
-      width: "70vw",
-      maxWidth: 500,
-      fullWidth: true,
-      '& > * + *': {
-        marginTop: theme.spacing(2),
-      },
-    },
 }));
 
 export default function SearchBar({addStock}) {
@@ -61,50 +47,54 @@ export default function SearchBar({addStock}) {
   }
   
   return (
-    <div className={classes.search, classes.inputRoot, classes.layout}>
-      <Box
-        display="flex"
-        flexWrap = "nowrap"
+    <div className={classes.root}>
+      <Grid
+        container
+        direction="row"
+        justify="center"
         alignItems="center"
-        p={1}
-        m={1}
-        cdd={{maxWidth: 600}}
+        alignContent="center"
+        spacing={2}
+        fullWidth={true}
+        wrap="nowrap"
+
       >
-        <Box p={1}>
+        <Grid item xs={12}>
           <Autocomplete
-          id="search-bar"
-          size="small"
-          classes={classes}
-          options={stockData["data"]}
-          getOptionLabel={(option) => option.security + ' (' + option.symbol + ')'}
-          onChange={onChange}
-          renderTags={(value, getTagProps) =>
-            value.map((option, index) => (
-              <Chip
-                variant="outlined"
-                label={option.security}
-                size="small"
-                {...getTagProps({ index })}
-              />
-            ))
-          }
-          renderInput={(params) => (
-            <TextField {...params} variant="filled" label="Enter a security or symbol" placeholder="Tesla, Inc. (TSLA)" />
-          )}
+            id="search-bar"
+            size="small"
+            className={classes}
+            options={stockData["data"]}
+            getOptionLabel={(option) => option.security + ' (' + option.symbol + ')'}
+            onChange={onChange}
+            style={{ width: '50vw', maxWidth: '500px' }}
+            renderTags={(value, getTagProps) =>
+              value.map((option, index) => (
+                <Chip
+                  variant="outlined"
+                  label={option.security}
+                  size="small"
+                  {...getTagProps({ index })}
+                />
+              ))
+            }
+            renderInput={(params) => (
+              <TextField {...params} variant="filled" label="Enter a security or symbol" placeholder="Tesla, Inc. (TSLA)" />
+            )}
           />
-        </Box>
-        <Box p={1}>
+        </Grid>
+        <Grid item xs>
           <Button
-            onClick={onAdd}
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            startIcon={<AddIcon />}
+              onClick={onAdd}
+              variant="contained"
+              color="primary"
+              className={classes.button}
+              startIcon={<AddIcon />}
           >
             Add
           </Button>
-        </Box>
-      </Box>
+        </Grid>
+      </Grid>
     </div>
   );
 }
