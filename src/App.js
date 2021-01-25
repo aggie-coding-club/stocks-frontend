@@ -66,7 +66,7 @@ function App() {
         <CssBaseline />
         <div className="App">
           <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode} />
-          <div style={{flexGrow: 1}}>
+          <div >
             <Grid container spacing={3}>
               <Grid item xs={6}>
                 <Graph data={actualGraphData} />
