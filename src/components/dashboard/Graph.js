@@ -22,7 +22,7 @@ const containerStyle = {
 
 }
 
-export default function Graph({data}) {
+export default function Graph({data, darkState}) {
   if (data.length === 0) {
     return (
       <div style={containerStyle}>
@@ -40,20 +40,20 @@ export default function Graph({data}) {
           theme={{
             // for whatever reason, this is not set by the color scheme, so
             // we do it manually here
-            textColor: 'white',
+            textColor: darkState ? 'white' : 'black',
             tooltip: {
               container: {
-                background: 'black'
+                background: darkState ? 'black' : 'white'
               }
             },
             crosshair: {
               line: {
-                stroke: 'white'
+                stroke: darkState ? 'white' : 'black'
               }
             },
             grid: {
               line: {
-                stroke: '#404040'
+                stroke: darkState ? '#404040' : '#E0E0E0'
               }
             }
           }}

@@ -71,7 +71,7 @@ function App() {
           <div >
             <Grid container spacing={3}>
               <Grid item xs={6}>
-                <Graph data={actualGraphData} />
+                <Graph data={actualGraphData} darkState={darkState}/>
               </Grid>
               <Grid item xs={6}>
                 <Stocks stocks={stocks} delStock={delStock} cardToggle={cardToggle} />
