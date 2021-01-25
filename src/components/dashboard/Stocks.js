@@ -5,6 +5,7 @@ import StockItem from './StockItem';
 const stockStyle = {
   float: 'right',
   height: '80vh',
+  width: '23vw',
   marginTop: '1vh',
   overflow: 'auto'
 }
