@@ -7,7 +7,7 @@ import { Button } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import Grid from '@material-ui/core/Grid';
 
-const stockData = require('../../data/stock_data.json')
+const stockData = require('../../data/top100.json')
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -64,15 +64,15 @@ export default function SearchBar({addStock}) {
             id="search-bar"
             size="small"
             className={classes}
-            options={stockData["data"]}
-            getOptionLabel={(option) => option.security + ' (' + option.symbol + ')'}
+            options={Object.entries(stockData["top100symbols"])}
+            getOptionLabel={([symbol, title]) => `${title} (${symbol})`}
             onChange={onChange}
             style={{ width: '50vw', maxWidth: '500px' }}
             renderTags={(value, getTagProps) =>
               value.map((option, index) => (
                 <Chip
                   variant="outlined"
-                  label={option.security}
+                  label={option[1]}
                   size="small"
                   {...getTagProps({ index })}
                 />
