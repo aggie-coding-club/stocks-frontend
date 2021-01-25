@@ -32,10 +32,10 @@ export default function StockItem({stock, delStock, cardToggle}) {
 
   function getTitle(title) {
     if (title) {
-      if (title.length <= 23) {
+      if (title.length <= 30) {
         return title
       } else {
-        return title.substring(0, 20) + "..."
+        return title.substring(0, 27) + "..."
       }
     }
     return "none found";
