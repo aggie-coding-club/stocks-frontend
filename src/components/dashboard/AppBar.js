@@ -11,6 +11,8 @@ import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 import SearchBar from '../dashboard/SearchBar'
 import Brightness4Icon from '@material-ui/icons/Brightness4';
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -112,45 +114,58 @@ export default function PrimarySearchAppBar({addStock, toggleDarkMode}) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static" color="inherit">
+      <AppBar position="fixed" color="inherit">
         <Toolbar>
-          <Typography className={classes.title} variant="h6" noWrap>
-            Stonks
-          </Typography>
-          <div className={classes.search}>
-            <SearchBar addStock={addStock}/>
-          </div>
-          <div className={classes.grow} />
-          <div className={classes.sectionDesktop}>
-
-              <IconButton color="inherit">
-                <Badge color="secondary">
-                  <Brightness4Icon onClick={toggleDarkMode}/>
-                </Badge>
-              </IconButton>
-
-            <IconButton
-              edge="end"
-              aria-label="account of current user"
-              aria-controls={menuId}
-              aria-haspopup="true"
-              onClick={handleProfileMenuOpen}
-              color="inherit"
-            >
-              <AccountCircle />
-            </IconButton>
-          </div>
-          <div className={classes.sectionMobile}>
-            <IconButton
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </div>
+          <Grid container
+            direction="row"
+            justify="space-between"
+            alignItems="center"
+            spacing={2}
+            wrap="nowrap"
+          >
+            <Grid item>
+              <Typography className={classes.title} variant="h6" noWrap>
+                Stonks
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Container maxWidth="sm">
+                <div>
+                  <SearchBar addStock={addStock}/>
+                </div>
+              </Container>
+            </Grid>
+            <Grid item>
+              <div className={classes.sectionDesktop}>
+                <IconButton color="inherit">
+                  <Badge color="secondary">
+                    <Brightness4Icon onClick={toggleDarkMode}/>
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                <AccountCircle />
+                </IconButton>
+              </div>
+              <div className={classes.sectionMobile}>
+                <IconButton
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </div>
+            </Grid>
+          </Grid>
         </Toolbar>
       </AppBar>
       {renderMobileMenu}

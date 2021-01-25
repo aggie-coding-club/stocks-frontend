@@ -13,6 +13,7 @@ import stockData from './data/stock_data2.json'
 import sampleGraphData from './data/graph_sample_data.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
 import Graph from "./components/dashboard/Graph";
+import Toolbar from "@material-ui/core/Toolbar";
 
 
 function App() {
@@ -66,6 +67,7 @@ function App() {
         <CssBaseline />
         <div className="App">
           <AppBar addStock={addStock} toggleDarkMode={toggleDarkMode} />
+          <Toolbar />
           <div >
             <Grid container spacing={3}>
               <Grid item xs={6}>
