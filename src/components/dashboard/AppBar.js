@@ -17,6 +17,10 @@ import Container from '@material-ui/core/Container'
 const useStyles = makeStyles((theme) => ({
   grow: {
     flexGrow: 1,
+    "& .MuiAppBar-root": {
+      maxHeight: "75px"
+    }
+
   },
   title: {
     display: 'none',
