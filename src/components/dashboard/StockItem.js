@@ -10,20 +10,14 @@ import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles({
   root: {
-
-
+    marginBottom: '10px'
   },
   title: {
     fontSize: 14,
     whiteSpace: 'nowrap'
   },
-  media: {
-    height: 0,
-    paddingTop: '56.25%',
-    margin: '1vh'
-  },
   pos: {
-    marginBottom: 12,
+    marginBottom: '10px',
   }
 });
 
