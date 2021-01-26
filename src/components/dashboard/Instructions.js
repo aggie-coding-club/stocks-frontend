@@ -6,9 +6,9 @@ const rootStyle = {
 }
 
 const containerStyle = {
-
   float: 'right',
-  textAlign: 'center'
+  textAlign: 'center',
+  display: 'inline'
 }
 export default function Instructions() {
   return(
