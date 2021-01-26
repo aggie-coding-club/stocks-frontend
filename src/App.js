@@ -10,11 +10,11 @@ import Grid from '@material-ui/core/Grid';
 import React, {useState} from 'react';
 // TODO(nhwn): replace hardcoded data imports with calls to the backed
 import stockData from './data/stock_data2.json'
-import sampleGraphData from './data/graph_sample_data.json'
+import sampleGraphData from './data/top100info.json'
+// import sampleGraphData from './data/graph_sample_data.json'
 import {SatelliteTwoTone} from "@material-ui/icons";
 import Graph from "./components/dashboard/Graph";
 import Toolbar from "@material-ui/core/Toolbar";
-
 
 function App() {
   const [darkState, setDarkState] = useState(false);
@@ -39,10 +39,10 @@ function App() {
     setDarkState(!darkState);
   }
 
-  function addStock(title) {
+  function addStock([title, symbol]) {
     //add stock from search bar
     //FIXME: should provide necessary information of stock here to pop up on card
-    let data = {title: title[0], symbol:title[1], id: Math.random()} // FIXME: Need to change this so its not a math.random
+    let data = {title, symbol, id: Math.random()} // FIXME: Need to change this so its not a math.random
     setStocks([...stocks, data])
   }
 
