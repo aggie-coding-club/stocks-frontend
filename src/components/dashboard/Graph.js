@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import {ResponsiveLine} from '@nivo/line'
 import Instructions from "./Instructions";
+=======
+import {ResponsiveLine} from "@nivo/line";
+import moment from 'moment'
+>>>>>>> feature-unify-data
 // NOTE: Nivo expects data to look like this:
 // Array<{
 //   id: string | number,
@@ -14,15 +19,16 @@ import Instructions from "./Instructions";
 // FIXME: avoid hardcoding the theme and instead rely on the background
 
 const containerStyle = {
-  width: '80vw',
-  height: '50vh',
-  alignItems: 'center',
-  margin: '12.5vh 0 12.5vh 0', // (100 - height) / 2
-  paddingRight: '1vw'
-
-}
+	width: "80vw",
+	height: "50vh",
+	alignItems: "center",
+	margin: "12.5vh 0 12.5vh 0", // (100 - height) / 2
+	paddingRight: "1vw",
+	paddingLeft: "1vw",
+};
 
 export default function Graph({data, darkState}) {
+<<<<<<< HEAD
   if (data.length === 0) {
     return (
       <div>
@@ -114,4 +120,126 @@ export default function Graph({data, darkState}) {
       </div>
     );
   }
+=======
+	if (data.length === 0) {
+		return (
+			<div style={containerStyle}>
+				<p>Toggle some stocks to graph them! (this is a placeholder)</p>
+			</div>
+		);
+	} else {
+		return (
+			<div style={containerStyle}>
+				<ResponsiveLine
+					data={data}
+					colors={{
+						scheme: "set2",
+					}}
+					theme={{
+						// for whatever reason, this is not set by the color scheme, so
+						// we do it manually here
+						textColor: darkState ? "white" : "black",
+						tooltip: {
+							container: {
+								background: darkState ? "black" : "white",
+							},
+						},
+						crosshair: {
+							line: {
+								stroke: darkState ? "white" : "black",
+							},
+						},
+						grid: {
+							line: {
+								stroke: darkState ? "#404040" : "#E0E0E0",
+							},
+						},
+					}}
+					// enables the cool sliding line that displays intercepts
+					enableSlices={"x"}
+					margin={{
+						top: 50,
+						right: 110,
+						bottom: 50,
+						left: 60,
+					}}
+					// round the displayed y-value to 2 decimal places
+					yFormat=" >-.2f"
+					sliceTooltip={({slice}) => {
+						return (
+							<div
+								style={{
+									background: 'white',
+									padding: "9px 12px",
+									border: "1px solid #ccc",
+								}}
+							>
+								{slice.points.map((point) => {
+									const generatedTime = point.data.xFormatted;
+									const timeString = moment(generatedTime).format("hh:mm A, DD MMM YYYY");
+									return (<div
+										key={point.x}
+										style={{
+											color: point.serieColor,
+											padding: "3px 0",
+										}}
+									>
+										<strong>${point.data.yFormatted}</strong>
+										<div>{timeString}</div>
+									</div>);
+								})}
+							</div>
+						);
+					}}
+					yScale={{type: "linear", min: "auto", max: "auto"}}
+					axisBottom={{
+						// legend: "Date",
+						// move axis label down to avoid hitting the axis line
+						legendOffset: 36,
+						legendPosition: "middle",
+						tickValues: [],
+					}}
+					axisLeft={{
+						legend: "USD",
+						// move axis label left to avoid hitting the axis line
+						legendOffset: -50 ,
+						legendPosition: "middle",
+					}}
+					axisTop={{
+						legend: "Your Daily Stonks",
+						// move axis label up to avoid hitting the axis line
+						legendOffset: -36,
+						legendPosition: "middle",
+						tickValues: [],
+					}}
+					legends={[
+						{
+							anchor: "bottom-right",
+							direction: "column",
+							// move legend box right to avoid hitting the graph
+							translateX: 100,
+							// ensure there's space for legend box to be populated
+							itemWidth: 80,
+							itemHeight: 20,
+							itemOpacity: 0.75,
+							symbolSize: 12,
+							symbolShape: "circle",
+							// make the hovered item more visible
+							symbolBorderColor: "rgba(0, 0, 0, .5)",
+							effects: [
+								{
+									on: "hover",
+									style: {
+										itemBackground: "rgba(0, 0, 0, .03)",
+										itemOpacity: 1,
+									},
+								},
+							],
+						},
+					]}
+				/>
+			</div>
+		);
+	}
+>>>>>>> feature-unify-data
 }
