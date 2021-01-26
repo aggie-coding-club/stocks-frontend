@@ -33,7 +33,8 @@ export default function SearchBar({addStock}) {
 
   function onChange(event, value) {
     if(value) {
-      setTitle([value.security, value.symbol]);
+      let [ticker, security] = value;
+      setTitle([security, ticker]);
     } else {
       setTitle(null)
     }
@@ -65,14 +66,14 @@ export default function SearchBar({addStock}) {
             size="small"
             className={classes}
             options={Object.entries(stockData["top100symbols"])}
-            getOptionLabel={([symbol, title]) => `${title} (${symbol})`}
+            getOptionLabel={([symbol, security]) => `${security} (${symbol})`}
             onChange={onChange}
             style={{ width: '50vw', maxWidth: '500px' }}
             renderTags={(value, getTagProps) =>
               value.map((option, index) => (
                 <Chip
                   variant="outlined"
-                  label={option[1]}
+                  label={option[1]}  // grabs security name
                   size="small"
                   {...getTagProps({ index })}
                 />
