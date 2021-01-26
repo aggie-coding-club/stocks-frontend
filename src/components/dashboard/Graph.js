@@ -1,5 +1,5 @@
 import {ResponsiveLine} from '@nivo/line'
-
+import Instructions from "./Instructions";
 // NOTE: Nivo expects data to look like this:
 // Array<{
 //   id: string | number,
@@ -25,8 +25,8 @@ const containerStyle = {
 export default function Graph({data}) {
   if (data.length === 0) {
     return (
-      <div style={containerStyle}>
-        <p>Toggle some stocks to graph them! (this is a placeholder)</p>
+      <div>
+        <Instructions/>
       </div>
     );
   } else {
