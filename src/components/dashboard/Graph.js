@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 import {ResponsiveLine} from '@nivo/line'
 import Instructions from "./Instructions";
-=======
 import {ResponsiveLine} from "@nivo/line";
 import moment from 'moment'
->>>>>>> feature-unify-data
 // NOTE: Nivo expects data to look like this:
 // Array<{
 //   id: string | number,
